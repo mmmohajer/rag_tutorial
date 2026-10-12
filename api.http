@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:8000
+
+### Health check
+GET {{baseUrl}}/
+
+### List pages
+GET {{baseUrl}}/rag/pages
+
+### Create a page
+POST {{baseUrl}}/rag/pages
+Content-Type: application/json
+
+{
+  "title": "Mohammad's Website",
+  "url": "http://localhost"
+}
+
+### List chunks
+GET {{baseUrl}}/rag/chunks
+
+### Create a chunk
+POST {{baseUrl}}/rag/chunks
+Content-Type: application/json
+
+{
+  "page_id": 1,
+  "chunk_number": 1,
+  "chunk_text": "The site is one-to-one mentorship for developers."
+}
+
+### Delete a page
+DELETE {{baseUrl}}/rag/pages/1
+
+### Ask a question
+POST {{baseUrl}}/rag/ask
+Content-Type: application/json
+
+{
+  "user_message": "What is your mentorship pricing?"
+}
